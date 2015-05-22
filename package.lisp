@@ -104,10 +104,52 @@
 
 (defpackage  :feebs
   (:use :common-lisp
-        :alexandria)
+   :alexandria)
   (:export
-   #:feeb-name
+   #:make-feeb
    #:ready-to-fire
+   #:feeb-name
+   #:coordinates
+   #:planet-name
+   #:feeb-peeking
+   #:feeb-energy
+   #:line-of-sight
+   #:feeb-score
+   #:feeb-kills
+   #:feeb-last-move
+   #:move-aborted-p
+   #:ready-to-fire-p
+   #:current-square
+   #:rear-square
+   #:left-square
+   #:right-square
+   #:vision-ahead
+   #:vision-right
+   #:vision-left
+   #:get-parm
+   #:set-parm
+   #:feeb-image-p
+   #:feeb-image-name
+   #:feeb-image-heading
+   #:fireball-image-p
+   #:fireball-image-shooter
+   #:fireball-image-direction
+   #:print-maze
+   #:print-scoreboard
+   #:test-feeb-brain
+   #:list-parameter-settings
+   #:move
+   #:play-cycle
+   #:play-game
+   #:play-restart
+   #:maze-layouts
+   #:change-maze-layout
+   #:planet-list
+   #:planet-feebs
+   #:planet-create
+   #:planet-join
+   #:planet-leave
    ))
+
 
 

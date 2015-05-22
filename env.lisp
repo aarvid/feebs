@@ -3,6 +3,9 @@
 (defparameter *active-feeb* nil)
 (defparameter *planets* nil)
 
+(defun make-feeb (name)
+  (make-instance 'feebs-base:feeb
+                 :name name))
 
 (defun make-planet-name (base-name)
   (do* ((n  0 (1+ n))
