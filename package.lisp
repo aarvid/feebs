@@ -106,6 +106,7 @@
   (:use :common-lisp
    :alexandria)
   (:export
+   #:*active-feeb*
    #:make-feeb
    #:ready-to-fire
    #:feeb-name

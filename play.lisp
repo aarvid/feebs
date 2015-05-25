@@ -214,12 +214,11 @@
     restored))
 
 (defgeneric calculate-feeb-move (feeb))
-#|(defmethod calculate-feeb-move ((feeb feeb))
-  (let ((smacklisp:*smack-symbols* (feeb-lisp-env feeb ))
-        (*active-feeb* feeb)
+(defmethod calculate-feeb-move ((feeb feeb))
+  (let ((feebs:*active-feeb* feeb)
         (timeout (get-feeb-parm (planet feeb) :feeb-timeout-seconds)))
     (handler-case
-        (smacklisp::interp-toplevel '(smacklisp::brain) :timeout timeout)
+        (funcall (feeb-brain feeb))
       (simple-condition (condition)
         (setf (feeb-last-error feeb)
               (apply 'format nil
@@ -229,15 +228,14 @@
       (serious-condition (condition)
         (setf (feeb-last-error feeb)
               (format nil "~A" condition))
-        :error))))|#
+        :error))))
 
 (defgeneric test-feeb-brain (feeb))
-#|(defmethod test-feeb-brain ((feeb feeb))
-  (let ((smacklisp:*smack-symbols* (feeb-lisp-env feeb ))
-        (*active-feeb* feeb)
+(defmethod test-feeb-brain ((feeb feeb))
+  (let ((*active-feeb* feeb)
         (timeout (get-feeb-parm (planet feeb) :feeb-timeout-seconds)))
     (with-play-active ((planet feeb))
-      (smacklisp::interp-toplevel '(smacklisp::brain) :timeout timeout))))|#
+      (smacklisp::interp-toplevel '(smacklisp::brain) :timeout timeout))))
 
 (defgeneric interpret-string (feeb string))
 (defmethod interpret-string ((feeb feeb) (string string))

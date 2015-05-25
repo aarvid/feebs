@@ -216,3 +216,6 @@
       t))
 
 
+
+(defun publish-brain (closure)
+  )
