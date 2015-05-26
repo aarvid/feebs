@@ -142,6 +142,7 @@
    (deaths     :accessor feeb-deaths   :initform 0)
    (lisp-env   :accessor feeb-lisp-env :initform nil)
    (brain      :accessor feeb-brain    :initform nil)
+   (publish    :accessor feeb-publish  :initform nil)
 
    (last-move  :accessor feeb-last-move :initform :noop)
    (special-move  :accessor feeb-special-move :initform nil)

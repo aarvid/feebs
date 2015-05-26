@@ -232,10 +232,10 @@
 
 (defgeneric test-feeb-brain (feeb))
 (defmethod test-feeb-brain ((feeb feeb))
-  (let ((*active-feeb* feeb)
+  (let ((feebs:*active-feeb* feeb)
         (timeout (get-feeb-parm (planet feeb) :feeb-timeout-seconds)))
     (with-play-active ((planet feeb))
-      (smacklisp::interp-toplevel '(smacklisp::brain) :timeout timeout))))
+      (funcall (feeb-brain feeb)))))
 
 (defgeneric interpret-string (feeb string))
 (defmethod interpret-string ((feeb feeb) (string string))

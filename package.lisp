@@ -68,6 +68,7 @@
    #:line-of-sight
    #:feeb-last-move
    #:feeb-move-aborted
+   #:feeb-publish
    ;;vision.lisp
    #:forward-dx
    #:forward-dy
@@ -150,6 +151,7 @@
    #:planet-create
    #:planet-join
    #:planet-leave
+   #:publish-brain
    ))
 
 

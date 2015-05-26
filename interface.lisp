@@ -209,13 +209,20 @@
 
 
 (defun planet-leave ()
-    (let ((planet (ensure-planet)))
-      (when (feebs-base:play-is-active planet)
-        (error "Cannot leave an active planet!"))
-      (feeb-leave-planet planet *active-feeb*)
-      t))
+  (let ((planet (ensure-planet)))
+    (when (feebs-base:play-is-active planet)
+      (error "Cannot leave an active planet!"))
+    (feeb-leave-planet planet *active-feeb*)
+    t))
 
 
 
 (defun publish-brain (closure)
+  (let ((planet (ensure-planet)))
+    (when (feebs-base:play-is-active planet)
+      (error "Cannot publish brain in an active planet!"))
+    (unless (feebs-base:feeb-publish *active-feeb*)
+      (error "Cannot publish brain!"))
+    (funcall (feebs-base:feeb-publish *active-feeb*) *active-feeb* closure)
+    t)
   )
