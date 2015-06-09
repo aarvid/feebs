@@ -152,6 +152,8 @@
    #:planet-join
    #:planet-leave
    #:publish-brain
+   #:feeb-heading
+   #:set-feeb-name
    ))
 
 

@@ -1,7 +1,7 @@
 (in-package :feebs)
 
 (defun feeb-name ()
-  (feebs-base:feeb-name  *active-feeb*))
+  (feebs-base:feeb-name *active-feeb*))
 
 (defun set-feeb-name (name)
   (when-let (pl (feebs-base:planet *active-feeb*))
