@@ -1,14 +1,11 @@
-(defpackage :feebs-system
-  (:use :cl :asdf))
 
-(in-package :feebs-system)
 
-(defsystem feebs
+(defsystem "feebs"
   :description "Planet of the Feebs - Arvid Version."
   :version "0.1"
   :author "Andy Peterson <andy.arvid@gmail.com>"
   :license "none - public domain"
-  :depends-on (#:alexandria)        
+  :depends-on ("alexandria")        
   :components
    ((:cl-source-file "package")
     (:cl-source-file "maze-layouts"  :depends-on ("package"))

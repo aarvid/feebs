@@ -6,7 +6,7 @@
 (defun set-feeb-name (name)
   (when-let (pl (feebs-base:planet *active-feeb*))
     (when (member name (feebs-base:defined-feebs pl)
-                  :key #'feeb-name :test #'string=)
+                  :key #'feebs-base:feeb-name :test #'string=)
       (error "The Planet already has a feeb with this name."))
     (when (feebs-base:play-is-active pl)
       (error "Cannot change name within an active game!")))
@@ -171,7 +171,7 @@
 
 (defun planet-feebs (&optional planet-name)
   (if-let ((pl (if planet-name
-                   (find planet-name *planets* :key #'planet-name :test #'string=)
+                   (find planet-name *planets* :key #'feebs-base:planet-name :test #'string=)
                    (ensure-planet))))
     (mapcar #'feebs-base:feeb-name (feebs-base:defined-feebs pl))
     (error "There does not exists a planet with this name: ~a" planet-name)))
@@ -197,7 +197,7 @@
         (error "Planet ~a is already at capacity. You cannot join." name))
       (when (member (feebs-base:feeb-name *active-feeb*)
                     (feebs-base:defined-feebs pl)
-                    :key #'feeb-name :test #'string=)
+                    :key #'feebs-base:feeb-name :test #'string=)
         (error "Planet ~a already has a feeb with your name. You cannot join." name))
       (when (>= (length (feebs-base:playing-feebs pl)) capacity)
         (feebs-base:bump-system-feeb pl))
